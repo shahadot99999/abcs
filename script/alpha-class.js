@@ -12,8 +12,16 @@
 //     playgroundSection.classList.remove('hidden')
 // }
 
+function continueGame(){
+    const alphabet = getARandomAlphabet();
+    console.log('Your random alphabet', alphabet)
+
+}
+
 function play(){
     hideElementById('home-screen');
 
     showElementById('play-ground');
+
+    continueGame();
 }
