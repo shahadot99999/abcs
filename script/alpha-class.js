@@ -23,22 +23,27 @@
 
 function handleKeyboardKeyUPEvent(event){
 
-    const playerPress = event.key;
-    console.log(' player press', playerPress);
     
-    //get the expected to press
+
+    const playerPress = event.key;
+
+
+    // key player is expected to press
+   
     const currentAlphabetElement = document.getElementById('current-alphabet');
     const currentAlphabet = currentAlphabetElement.innerText;
     const expectedAlphabet = currentAlphabet.toLowerCase();
-    console.log(playerPress, expectedAlphabet);
 
-
-    //check match or not
-    if(playerPress === expectedAlphabet){
-        console.log(' you get a point' );
+    //check wright or wrong
+    if(playerPress === expectedAlphabet)
+    {
+        console.log('you got point');
+        console.log('you have presssed correctly', playerPress);
+        removeBackgroundColorById(playerPress);
+        continueGame();
     }
     else{
-        console.log('you did not get a point');
+        console.log('you can not get point');
     }
 
 }
@@ -49,7 +54,7 @@ function continueGame(){
 
     //step 1: generate a random alphabet
     const alphabet = getARandomAlphabet();
-    console.log('Your random alphabet', alphabet);
+    //console.log('Your random alphabet', alphabet);
 
     //set randomly generated alphabet to the screen (show it)
     const currentAlphabetElement = document.getElementById('current-alphabet');
