@@ -13,13 +13,37 @@
 // }
 
 
-function handleKeyboardButtonPress(){
-    console.log('button press');
+// function handleKeyboardButtonPress(){
+//     console.log('button press');
+// }
+
+
+// //capture keyboard key press 
+// document.addEventListener('keyup', handleKeyboardButtonPress )
+
+function handleKeyboardKeyUPEvent(event){
+
+    const playerPress = event.key;
+    console.log(' player press', playerPress);
+    
+    //get the expected to press
+    const currentAlphabetElement = document.getElementById('current-alphabet');
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+    console.log(playerPress, expectedAlphabet);
+
+
+    //check match or not
+    if(playerPress === expectedAlphabet){
+        console.log(' you get a point' );
+    }
+    else{
+        console.log('you did not get a point');
+    }
+
 }
 
-
-//capture keyboard key press 
-document.addEventListener('keyup', handleKeyboardButtonPress )
+document.addEventListener('keyup', handleKeyboardKeyUPEvent);
 
 function continueGame(){
 
