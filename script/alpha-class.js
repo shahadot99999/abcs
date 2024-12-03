@@ -87,6 +87,11 @@ function handleKeyboardKeyUPEvent(event){
         const updateLife = currentLife - 1; 
         setTextElementValueById('current-life', updateLife);
 
+        if(updateLife === 0){
+            //console.log('game over');
+            gameOver();
+        }
+
           //............................................
         // //step 1 : get the current life number
         // const currentLifeElement = document.getElementById('current-life');
@@ -123,9 +128,23 @@ function continueGame(){
 }
 
 function play(){
-    hideElementById('home-screen');
 
+    //hide everything show only the playground 
+    hideElementById('home-screen');
+    hideElementById('final-score')
     showElementById('play-ground');
+    
+
+    //reset score and life
+    setTextElementValueById('current-life', 5);
+    setTextElementValueById('current-score', 0);
+
+
 
     continueGame();
+}
+
+function gameOver(){
+   hideElementById('play-ground');
+   showElementById('final-score');
 }
