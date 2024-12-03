@@ -38,23 +38,39 @@ function handleKeyboardKeyUPEvent(event){
     if(playerPress === expectedAlphabet)
     {
         console.log('you got point');
+
+        //................function apply
+       const currentScore = getTextElementValueById('current-score');
+       //console.log(currentScore);
+       const updateScore = currentScore + 1;
+
+       setTextElementValueById('current-score' , updateScore);
+
+
+
+
+        //...........................................
         //console.log('you have presssed correctly', playerPress);
 
        //update a score:
        //1.get the current score
 
 
-       const currentScoreElement = document.getElementById('current-score');
-       const currentScoreText = currentScoreElement.innerText;
-       //console.log(currentScoreText);
-       const currentScore = parseInt(currentScoreText);
-       console.log(currentScore);
-       //2. Increase the new score by 1
+    //    const currentScoreElement = document.getElementById('current-score');
+    //    const currentScoreText = currentScoreElement.innerText;
+    //    //console.log(currentScoreText);
+    //    const currentScore = parseInt(currentScoreText);
+    //    console.log(currentScore);
 
-       const newScore = currentScore + 1;
 
-       //3. show the up date score
-       currentScoreElement.innerText = newScore;
+    
+
+
+    //    //2. Increase the new score by 1
+     // const newScore = currentScore + 1;
+
+    //    //3. show the up date score
+    //    currentScoreElement.innerText = newScore;
 
 
         
@@ -66,18 +82,24 @@ function handleKeyboardKeyUPEvent(event){
     else{
         console.log('you can not get point');
 
-        //step 1 : get the current life number
-        const currentLifeElement = document.getElementById('current-life');
-        const currentLifeText = currentLifeElement.innerText;
-        const currentLife = parseInt(currentLifeText);
+
+        const currentLife = getTextElementValueById('current-life');
+        const updateLife = currentLife - 1; 
+        setTextElementValueById('current-life', updateLife);
+
+          //............................................
+        // //step 1 : get the current life number
+        // const currentLifeElement = document.getElementById('current-life');
+        // const currentLifeText = currentLifeElement.innerText;
+        // const currentLife = parseInt(currentLifeText);
 
 
-        //step 2 : reduce the life count
-        const newLife = currentLife - 1 ;
+        // //step 2 : reduce the life count
+        // const newLife = currentLife - 1 ;
 
 
-        //step 3: display the updated life count
-        currentLifeElement.innerText = newLife;
+        // //step 3: display the updated life count
+        // currentLifeElement.innerText = newLife;
     }
 
 }
